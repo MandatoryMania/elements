@@ -148,21 +148,21 @@ bool AppInit(int argc, char* argv[])
             // InitError will have been called with detailed error, which ends up on console
             exit(1);
         }
-        if (GetBoolArg("-daemon", false))
-        {
-#if HAVE_DECL_DAEMON
-            fprintf(stdout, "Elements server starting\n");
-
-            // Daemonize
-            if (daemon(1, 0)) { // don't chdir (1), do close FDs (0)
-                fprintf(stderr, "Error: daemon() failed: %s\n", strerror(errno));
-                return false;
-            }
-#else
-            fprintf(stderr, "Error: -daemon is not supported on this operating system\n");
-            return false;
-#endif // HAVE_DECL_DAEMON
-        }
+//        if (GetBoolArg("-daemon", false))
+//        {
+//#if HAVE_DECL_DAEMON
+//            fprintf(stdout, "Elements server starting\n");
+//
+//            // Daemonize
+//            if (daemon(1, 0)) { // don't chdir (1), do close FDs (0)
+//                fprintf(stderr, "Error: daemon() failed: %s\n", strerror(errno));
+//                return false;
+//            }
+//#else
+//            fprintf(stderr, "Error: -daemon is not supported on this operating system\n");
+//            return false;
+//#endif // HAVE_DECL_DAEMON
+//        }
 
         fRet = AppInitMain(threadGroup, scheduler);
     }

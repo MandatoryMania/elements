@@ -1,6 +1,6 @@
 *.tar.gz
 
-*.exe
+# *.exe
 src/elements
 src/elementsd
 src/elements-cli
